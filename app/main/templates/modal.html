@@ -1,0 +1,20 @@
+<ion-modal-view view-title="Question">
+    <ion-header-bar class="bar bar-header bar-dark" align-title="center">
+        <ion-title>Jeopanime!</ion-title>
+        <div class="buttons" side="right">
+            <button class="button button-icon icon ion-close" ng-click="closeQuestion()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="centered mega-text heavy-text fifty-pad">
+            {{ thisQuestionText }}
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar bar-footer bar-dark" align-title="center">
+        <div class="row">
+            <div class="col button button-assertive" ng-click="awardPoints(pointValue, 'one')">{{ playerList.one }}</div>
+            <div class="col button button-positive" ng-click="awardPoints(pointValue, 'two')">{{ playerList.two }}</div>
+            <div class="col button button-energized" ng-click="awardPoints(pointValue, 'three')">{{ playerList.three }}</div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

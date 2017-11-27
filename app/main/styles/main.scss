@@ -1,0 +1,102 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+*/
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #4a87ee !default;
+$calm:                            #43cee6 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #f0b840 !default;
+$assertive:                       #ef4e3a !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #444 !default;
+
+// The path for our ionicons font files, relative to the built & temporary main.css
+$ionicons-font-path: "../assets/fonts" !default;
+
+// Include all of Ionic
+@import "../../bower_components/ionic/scss/ionic";
+
+// added via yo m-ionic:component subgenerator
+@import '../components/mini/mini-component';
+
+
+// Font & text modifiers
+.big-text {
+    font-size: 2em;
+}
+
+.mega-text {
+    font-size: 4em;
+}
+
+.hyper-text {
+    font-size: 6em;
+}
+
+.heavy-text {
+    font-weight: 800;
+}
+
+.centered {
+    text-align: center;
+}
+
+// Padding
+
+.ten-pad {
+    padding: 10px;
+}
+
+.twenty-pad {
+    padding: 20px;
+}
+
+.fifty-pad {
+    padding: 50px;
+}
+
+// Grid modifiers
+div.board div.row {
+    margin-bottom: 15px;
+}
+
+div.board div.row div.col {
+    text-align: center;
+    margin: 0 5px;
+}
+
+div.board div.row div.col.button {
+    text-align: center;
+    background-color: #444;
+    color: #FFF;
+    font-size: 2em;
+    font-weight: 800;
+    padding: 30px 0px;
+}
+
+ion-footer-bar div.row div.col {
+    text-align: center;
+    color: #FFF;
+    margin: -5px 5px;
+}
+
+div.board div.row.header div.col {
+    background-color: #FFF;
+    color: rgb(53, 53, 53);
+}
+
+// Specific modifiers
+
+input[type="text"] {
+    font-size: 24px;
+}
+
+.item-radio .radio-icon {
+    top: -13px;
+    font-size: 36px;
+}

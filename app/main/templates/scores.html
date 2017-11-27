@@ -1,0 +1,38 @@
+<ion-view view-title="Players">
+  <ion-content scroll="false">
+
+    <div class="card">
+      <ion-list>
+        <ion-item class="item-assertive big-text centered">
+          {{ playerList.one }}
+        </ion-item>
+        <ion-item class="hyper-text heavy-text fifty-pad centered">
+          ¥{{ scoreList.one | number:0 }}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="card">
+      <ion-list>
+        <ion-item class="item-positive big-text centered">
+          {{ playerList.two }}
+        </ion-item>
+        <ion-item class="hyper-text heavy-text fifty-pad centered">
+          ¥{{ scoreList.two | number:0 }}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="card">
+      <ion-list>
+        <ion-item class="item-energized big-text centered">
+          {{ playerList.three }}
+        </ion-item>
+        <ion-item class="hyper-text heavy-text fifty-pad centered">
+          ¥{{ scoreList.three | number:0 }}
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </ion-content>
+</ion-view>
