@@ -22,41 +22,6 @@ angular.module('main')
     };
   }
 
-  $rootScope.headerSet = {
-    1: {
-      1: 'Test',
-      2: 'Test',
-      3: 'Test',
-      4: 'Test',
-      5: 'Test',
-      6: 'Test'
-    },
-    2: {
-      1: 'Test',
-      2: 'Test',
-      3: 'Test',
-      4: 'Test',
-      5: 'Test',
-      6: 'Test'
-    },
-    3: {
-      1: 'Test',
-      2: 'Test',
-      3: 'Test',
-      4: 'Test',
-      5: 'Test',
-      6: 'Test'
-    },
-    4: {
-      1: 'Test',
-      2: 'Test',
-      3: 'Test',
-      4: 'Test',
-      5: 'Test',
-      6: 'Test'
-    }
-  };
-
   $rootScope.disableButtons = {
     'A1': false,
     'A2': false,
@@ -104,12 +69,36 @@ angular.module('main')
   $rootScope.headersSet = {
     1: {
       1: 'Test',
+      2: 'Test',
+      3: 'Test',
+      4: 'Test',
+      5: 'Test',
+      6: 'Test'
     },
     2: {
-      1: 'Test2',
+      1: 'Test',
+      2: 'Test',
+      3: 'Test',
+      4: 'Test',
+      5: 'Test',
+      6: 'Test'
     },
-    3: {},
-    4: {}
+    3: {
+      1: 'Test',
+      2: 'Test',
+      3: 'Test',
+      4: 'Test',
+      5: 'Test',
+      6: 'Test'
+    },
+    4: {
+      1: 'Test',
+      2: 'Test',
+      3: 'Test',
+      4: 'Test',
+      5: 'Test',
+      6: 'Test'
+    }
   };
 
   $ionicModal.fromTemplateUrl('main/templates/modal.html', {

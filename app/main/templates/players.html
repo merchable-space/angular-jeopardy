@@ -3,7 +3,7 @@
 
     <div class="card">
       <ion-list>
-        <ion-item class="item-assertive big-text">
+        <ion-item class="item-assertive thin-item">
           Player One
         </ion-item>
         <ion-item>
@@ -11,12 +11,7 @@
             <input type="text" ng-model="playerList.one">
           </label>
         </ion-item>
-      </ion-list>
-    </div>
-
-    <div class="card">
-      <ion-list>
-        <ion-item class="item-positive big-text">
+        <ion-item class="item-positive thin-item">
           Player Two
         </ion-item>
         <ion-item>
@@ -24,12 +19,7 @@
             <input type="text" ng-model="playerList.two">
           </label>
         </ion-item>
-      </ion-list>
-    </div>
-
-    <div class="card">
-      <ion-list>
-        <ion-item class="item-energized big-text">
+        <ion-item class="item-energized thin-item">
           Player Three
         </ion-item>
         <ion-item>
@@ -42,7 +32,7 @@
 
     <div class="card">
       <ion-list>
-        <ion-item class="item-dark big-text">
+        <ion-item class="item-dark thin-item">
           Question Set
         </ion-item>
         <ion-item class="item-icon-right" ng-click="switchQuestions(1)">
@@ -52,6 +42,14 @@
         <ion-item class="item-icon-right" ng-click="switchQuestions(2)">
           Set B
           <i class="icon ion-android-done" ng-if="selectedId === 2"></i>
+        </ion-item>
+        <ion-item class="item-icon-right" ng-click="switchQuestions(3)">
+          Set C
+          <i class="icon ion-android-done" ng-if="selectedId === 3"></i>
+        </ion-item>
+        <ion-item class="item-icon-right" ng-click="switchQuestions(4)">
+          Set D
+          <i class="icon ion-android-done" ng-if="selectedId === 4"></i>
         </ion-item>
       </ion-list>
     </div>

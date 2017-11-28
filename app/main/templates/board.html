@@ -55,6 +55,19 @@
             <div class="col button" ng-disabled="disableButtons['E5']" ng-click="openQuestion('E5', 10000)">¥10,000</div>
             <div class="col button" ng-disabled="disableButtons['E6']" ng-click="openQuestion('E6', 10000)">¥10,000</div>
         </div>
+
+        <div class="card">
+            <div class="row">
+                <div class="col col-assertive big-text">{{ playerList.one }}</div>
+                <div class="col col-positive big-text">{{ playerList.two }}</div>
+                <div class="col col-energized big-text">{{ playerList.three }}</div>
+            </div>
+            <div class="row">
+                <div class="col mega-text heavy-text">¥{{ scoreList.one | number:0 }}</div>
+                <div class="col mega-text heavy-text">¥{{ scoreList.two | number:0 }}</div>
+                <div class="col mega-text heavy-text">¥{{ scoreList.three | number:0 }}</div>
+            </div>
+        </div>
     </div>
 
 </ion-content>
