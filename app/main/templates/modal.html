@@ -1,12 +1,12 @@
 <ion-modal-view view-title="Question">
     <ion-header-bar class="bar bar-header bar-dark" align-title="center">
-        <ion-title>Jeopanime!</ion-title>
+        <ion-title>{{ thisQuestionColumn | uppercase }} - ¥{{ pointValue | number }}</ion-title>
         <div class="buttons" side="right">
             <button class="button button-icon icon ion-close" ng-click="closeQuestion()"></button>
         </div>
     </ion-header-bar>
     <ion-content>
-        <div class="centered mega-text heavy-text fifty-pad fancy-font">
+        <div class="centered mega-text heavy-text twenty-pad fancy-font">
             {{ thisQuestionText }}
         </div>
     </ion-content>

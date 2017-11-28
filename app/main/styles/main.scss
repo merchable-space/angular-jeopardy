@@ -75,10 +75,12 @@ div.col.col-assertive {
 
 .fancy-font {
     font-family: 'JosefinSans', sans-serif;
+    line-height: 1em;
 }
 
 .fancy-bold {
     font-family: 'JosefinSansBold', sans-serif;
+    line-height: 1em;
 }
 
 // Padding
@@ -97,6 +99,10 @@ div.col.col-assertive {
 
 .thin-item {
     padding: 8px 16px;
+}
+
+.margin-center {
+    margin: 5px auto;
 }
 
 // Grid modifiers
@@ -162,4 +168,12 @@ input[type="text"] {
 .item-radio .radio-icon {
     top: -13px;
     font-size: 36px;
+}
+
+div.timer {
+    color: #FF0000;
+}
+
+div.answer {
+    color: #717171;
 }

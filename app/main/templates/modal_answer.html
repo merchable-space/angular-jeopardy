@@ -1,0 +1,21 @@
+<ion-modal-view view-title="Question">
+    <ion-header-bar class="bar bar-header bar-dark" align-title="center">
+        <ion-title>{{ thisQuestionColumn | uppercase }} - ¥{{ pointValue | number }}</ion-title>
+        <div class="buttons" side="right">
+            <button class="button button-icon icon ion-close" ng-click="closeAnswer()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="centered big-text twenty-pad heavy-text fancy-font">
+            {{ thisQuestionText }}
+        </div>
+        <div class="centered big-text twenty-pad fancy-font answer">
+            {{ thisQuestionAnswer }}
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar bar-footer bar-dark" align-title="center">
+        <div class="centered big-text heavy-text margin-center fancy-font timer">
+            {{ questionTimer | number }}
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

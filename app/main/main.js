@@ -26,6 +26,16 @@ angular.module('main', [
           }
         }
       })
+      .state('main.boardtwo', {
+        url: '/board/two',
+        cache: true,
+        views: {
+          'tab-boardTwo': {
+            templateUrl: 'main/templates/board_a.html',
+            controller: 'PlayerCtrl as playerControl'
+          }
+        }
+      })
       .state('main.players', {
         url: '/players',
         cache: true,

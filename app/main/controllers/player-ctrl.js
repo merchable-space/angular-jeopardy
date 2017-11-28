@@ -1,12 +1,14 @@
 'use strict';
 angular.module('main')
-.controller('PlayerCtrl', function (Main, $scope, $rootScope, $ionicModal, $window) {
+.controller('PlayerCtrl', function (Main, $scope, $rootScope, $ionicModal, $window, $interval) {
 
   $rootScope.switchQuestions = switchQuestions;
   $rootScope.openQuestion = openQuestion;
   $rootScope.closeQuestion = closeQuestion;
   $rootScope.awardPoints = awardPoints;
   $rootScope.gameReset = gameReset;
+  $rootScope.openAnswer = openAnswer;
+  $rootScope.closeAnswer = closeAnswer;
 
   if ($rootScope.playerList === undefined) {
     $rootScope.playerList = {
@@ -59,13 +61,264 @@ angular.module('main')
 
   $rootScope.questionSet = {
     1: {
-      'A1': 'Test',
+      'A1': 'A word that describes a character that starts off cold-hearted, but gradually warms to another character. Usually voiced by Rie Kugimiya.',
+      'B1': 'Referencing the space between skirt and stockings, this phrase translates as "absolute territory".',
+      'C1': 'A small tuft or strand of hair that sticks out in a different direction to the rest of a character\'s hair.',
+      'D1': 'The name used to refer to male fans of yaoi.',
+      'E1': 'This term is used to describe a phenomenon in manga where a character will explode out of the page\'s frames, usually for emphasis.',
+      'A2': '"May all your bacon burn."',
+      'B2': '"You are already dead."',
+      'C2': '"It\'s not bad to dream. But you also have to consider what\'s realistic."',
+      'D2': '"A true man never dies, even when he is killed!"',
+      'E2': '"Even if I lose this feeling, I\'m sure that I\'ll just fall in love with you all over again."',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
     },
     2: {
-      'A1': 'Test2',
+      'A1': '',
+      'B1': '',
+      'C1': '',
+      'D1': '',
+      'E1': '',
+      'A2': '',
+      'B2': '',
+      'C2': '',
+      'D2': '',
+      'E2': '',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
     },
-    3: {},
-    4: {}
+    3: {
+      'A1': '',
+      'B1': '',
+      'C1': '',
+      'D1': '',
+      'E1': '',
+      'A2': '',
+      'B2': '',
+      'C2': '',
+      'D2': '',
+      'E2': '',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
+    },
+    4: {
+      'A1': '',
+      'B1': '',
+      'C1': '',
+      'D1': '',
+      'E1': '',
+      'A2': '',
+      'B2': '',
+      'C2': '',
+      'D2': '',
+      'E2': '',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
+    }
+  };
+
+  $rootScope.answerSet = {
+    1: {
+      'A1': 'Tsundere',
+      'B1': 'Zettai ryōiki',
+      'C1': 'Ahoge',
+      'D1': 'Fudanshi',
+      'E1': 'Buchinuki',
+      'A2': 'Howl\'s Moving Castle (Calcifer)',
+      'B2': 'Fist Of The North Star (Kenshirou)',
+      'C2': 'My Hero Academia (All-Might)',
+      'D2': 'Gurren Lagaan (Kamina)',
+      'E2': 'Cardcaptor Sakura (Syaoran Li)',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
+    },
+    2: {
+      'A1': '',
+      'B1': '',
+      'C1': '',
+      'D1': '',
+      'E1': '',
+      'A2': '',
+      'B2': '',
+      'C2': '',
+      'D2': '',
+      'E2': '',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
+    },
+    3: {
+      'A1': '',
+      'B1': '',
+      'C1': '',
+      'D1': '',
+      'E1': '',
+      'A2': '',
+      'B2': '',
+      'C2': '',
+      'D2': '',
+      'E2': '',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
+    },
+    4: {
+      'A1': '',
+      'B1': '',
+      'C1': '',
+      'D1': '',
+      'E1': '',
+      'A2': '',
+      'B2': '',
+      'C2': '',
+      'D2': '',
+      'E2': '',
+      'A3': '',
+      'B3': '',
+      'C3': '',
+      'D3': '',
+      'E3': '',
+      'A4': '',
+      'B4': '',
+      'C4': '',
+      'D4': '',
+      'E4': '',
+      'A5': '',
+      'B5': '',
+      'C5': '',
+      'D5': '',
+      'E5': '',
+      'A6': '',
+      'B6': '',
+      'C6': '',
+      'D6': '',
+      'E6': '',
+    }
   };
 
   $rootScope.headersSet = {
@@ -112,23 +365,65 @@ angular.module('main')
     $rootScope.questionModal = modal;
   });
 
+  $ionicModal.fromTemplateUrl('main/templates/modal_answer.html', {
+    scope: $scope,
+    animation: 'slide-in-up',
+    backdropClickToClose: false,
+    hardwareBackButtonClose: false
+  }).then(function (modal) {
+    $rootScope.answerModal = modal;
+  });
+
+  function checkTimer () {
+    if ($rootScope.questionTimer === 0) {
+      $interval.cancel($rootScope.questionTicker);
+    }
+    else {
+      $rootScope.questionTimer--;
+    }
+  }
+
   function switchQuestions (setId) {
     $rootScope.selectedId = setId;
     $rootScope.selectedList = $rootScope.questionSet[setId];
+    $rootScope.selectedAnswers = $rootScope.answerSet[setId];
     $rootScope.selectedHeaders = $rootScope.headersSet[setId];
   }
 
   function openQuestion (questionTag, pointsValue) {
     var currentSet = $rootScope.selectedList;
+    var currentHeaders = $rootScope.selectedHeaders;
+    var currentColumn = questionTag.substring(1);
 
     $rootScope.thisQuestionText = currentSet[questionTag];
+    $rootScope.thisQuestionColumn = currentHeaders[currentColumn];
     $rootScope.disableButtons[questionTag] = true;
     $rootScope.pointValue = pointsValue;
     $rootScope.questionModal.show();
   }
 
+  function openAnswer (questionTag, pointsValue) {
+    var currentSet = $rootScope.selectedList;
+    var currentAnswers = $rootScope.selectedAnswers;
+    var currentHeaders = $rootScope.selectedHeaders;
+    var currentColumn = questionTag.substring(1);
+
+    $rootScope.questionTimer = 10;
+    $rootScope.thisQuestionText = currentSet[questionTag];
+    $rootScope.thisQuestionColumn = currentHeaders[currentColumn];
+    $rootScope.thisQuestionAnswer = currentAnswers[questionTag];
+    $rootScope.pointValue = pointsValue;
+    $rootScope.answerModal.show();
+    $rootScope.questionTicker = $interval(checkTimer, 1000, 10);
+  }
+
   function closeQuestion () {
     $rootScope.questionModal.hide();
+  }
+
+  function closeAnswer () {
+    $rootScope.answerModal.hide();
+    $interval.cancel($rootScope.questionTicker);
   }
 
   function awardPoints (points, player) {
