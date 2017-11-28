@@ -1,14 +1,20 @@
 <ion-view view-title="Board">
 <ion-content scroll="false">
 
-    <div class="board">
+    <div ng-if="!selectedId" class="placeholder">
+        No questions selected
+        <br>
+        <img src="main/assets/images/john.gif"></img>
+    </div>
+
+    <div class="board" ng-if="selectedId">
         <div class="row headers">
-            <div class="col">{{ selectedHeaders[1] }}</div>
-            <div class="col">{{ selectedHeaders[2] }}</div>
-            <div class="col">{{ selectedHeaders[3] }}</div>
-            <div class="col">{{ selectedHeaders[4] }}</div>
-            <div class="col">{{ selectedHeaders[5] }}</div>
-            <div class="col">{{ selectedHeaders[6] }}</div>
+            <div class="col"><div>{{ selectedHeaders[1] }}</div></div>
+            <div class="col"><div>{{ selectedHeaders[2] }}</div></div>
+            <div class="col"><div>{{ selectedHeaders[3] }}</div></div>
+            <div class="col"><div>{{ selectedHeaders[4] }}</div></div>
+            <div class="col"><div>{{ selectedHeaders[5] }}</div></div>
+            <div class="col"><div>{{ selectedHeaders[6] }}</div></div>
         </div>
 
         <div class="row">
@@ -58,9 +64,9 @@
 
         <div class="card">
             <div class="row">
-                <div class="col col-assertive big-text">{{ playerList.one }}</div>
-                <div class="col col-positive big-text">{{ playerList.two }}</div>
-                <div class="col col-energized big-text">{{ playerList.three }}</div>
+                <div class="col col-assertive big-text ten-pad">{{ playerList.one }}</div>
+                <div class="col col-positive big-text ten-pad">{{ playerList.two }}</div>
+                <div class="col col-energized big-text ten-pad">{{ playerList.three }}</div>
             </div>
             <div class="row">
                 <div class="col mega-text heavy-text">¥{{ scoreList.one | number:0 }}</div>

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('PlayerCtrl', function (Main, $scope, $rootScope, $ionicModal) {
+.controller('PlayerCtrl', function (Main, $scope, $rootScope, $ionicModal, $window) {
 
   $rootScope.switchQuestions = switchQuestions;
   $rootScope.openQuestion = openQuestion;
@@ -8,11 +8,13 @@ angular.module('main')
   $rootScope.awardPoints = awardPoints;
   $rootScope.gameReset = gameReset;
 
-  $rootScope.playerList = {
-    one: 'Goku',
-    two: 'Mikasa',
-    three: 'Naruto'
-  };
+  if ($rootScope.playerList === undefined) {
+    $rootScope.playerList = {
+      one: 'Goku',
+      two: 'Mikasa',
+      three: 'Naruto'
+    };
+  }
 
   if ($rootScope.scoreList === undefined) {
     $rootScope.scoreList = {
@@ -68,11 +70,11 @@ angular.module('main')
 
   $rootScope.headersSet = {
     1: {
-      1: 'Test',
-      2: 'Test',
-      3: 'Test',
-      4: 'Test',
-      5: 'Test',
+      1: 'Anime to Z',
+      2: 'Quote Me On That',
+      3: 'High Earners',
+      4: 'Who Are You?',
+      5: 'Vox Populi',
       6: 'Test'
     },
     2: {
@@ -172,5 +174,7 @@ angular.module('main')
       'E5': false,
       'E6': false
     };
+
+    $window.location.reload();
   }
 });

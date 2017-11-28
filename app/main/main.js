@@ -18,7 +18,7 @@ angular.module('main', [
     })
       .state('main.boardone', {
         url: '/board/one',
-        cache: false,
+        cache: true,
         views: {
           'tab-boardOne': {
             templateUrl: 'main/templates/board.html',
@@ -28,7 +28,7 @@ angular.module('main', [
       })
       .state('main.players', {
         url: '/players',
-        cache: false,
+        cache: true,
         views: {
           'tab-players': {
             templateUrl: 'main/templates/players.html',
@@ -38,7 +38,7 @@ angular.module('main', [
       })
       .state('main.scores', {
         url: '/scores',
-        cache: false,
+        cache: true,
         views: {
           'tab-scores': {
             templateUrl: 'main/templates/scores.html',
