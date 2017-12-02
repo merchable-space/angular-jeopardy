@@ -34,6 +34,13 @@ $ionicons-font-path: "../assets/fonts" !default;
     src: url('../assets/fonts/JosefinSans-Bold.ttf') format('truetype');
 }
 
+.scroll-content {
+    background-image: url(../assets/images/explosion.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 // Columns
 
 div.col.col-positive {
