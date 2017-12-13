@@ -9,6 +9,8 @@ angular.module('main')
   $rootScope.gameReset = gameReset;
   $rootScope.openAnswer = openAnswer;
   $rootScope.closeAnswer = closeAnswer;
+  $rootScope.showSettings = showSettings;
+  $rootScope.closeSettings = closeSettings;
 
   if ($rootScope.playerList === undefined) {
     $rootScope.playerList = {
@@ -374,6 +376,15 @@ angular.module('main')
     $rootScope.answerModal = modal;
   });
 
+  $ionicModal.fromTemplateUrl('main/templates/modal_settings.html', {
+    scope: $scope,
+    animation: 'slide-in-up',
+    backdropClickToClose: false,
+    hardwareBackButtonClose: false
+  }).then(function (modal) {
+    $rootScope.settingsModal = modal;
+  });
+
   function checkTimer () {
     if ($rootScope.questionTimer === 0) {
       $interval.cancel($rootScope.questionTicker);
@@ -424,6 +435,14 @@ angular.module('main')
   function closeAnswer () {
     $rootScope.answerModal.hide();
     $interval.cancel($rootScope.questionTicker);
+  }
+
+  function showSettings () {
+    $rootScope.settingsModal.show();
+  }
+
+  function closeSettings () {
+    $rootScope.settingsModal.hide();
   }
 
   function awardPoints (points, player) {
