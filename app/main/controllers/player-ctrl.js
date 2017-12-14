@@ -488,7 +488,5 @@ angular.module('main')
       'E5': false,
       'E6': false
     };
-
-    $window.location.reload();
   }
 });
