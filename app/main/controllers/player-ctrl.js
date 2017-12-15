@@ -11,6 +11,8 @@ angular.module('main')
   $rootScope.closeAnswer = closeAnswer;
   $rootScope.showSettings = showSettings;
   $rootScope.closeSettings = closeSettings;
+  $rootScope.playMusic = playMusic;
+  $rootScope.stopMusic = stopMusic;
 
   if ($rootScope.playerList === undefined) {
     $rootScope.playerList = {
@@ -95,8 +97,8 @@ angular.module('main')
       'E6': 'In cinemas in this year: "Kiki\'s Delivery Service" and "Patlabor: The Movie".',
     },
     2: {
-      'A1': '',
-      'B1': '',
+      'A1': '<img src="main/assets/images/play.png" ng-click="playMusic(1)"></img><img src="main/assets/images/stop.png" ng-click="stopMusic()"></img>',
+      'B1': '<button class="button button-balanced icon-left ion-play button-block" ng-click="playMusic(1)">Play Audio</button><button class="button button-assertive icon-left ion-stop button-block" ng-click="stopMusic()">Stop Audio</button>',
       'C1': '',
       'D1': '',
       'E1': '',
@@ -430,6 +432,7 @@ angular.module('main')
 
   function closeQuestion () {
     $rootScope.questionModal.hide();
+    $rootScope.audio.pause();
   }
 
   function closeAnswer () {
@@ -447,6 +450,23 @@ angular.module('main')
 
   function awardPoints (points, player) {
     $rootScope.scoreList[player] += points;
+  }
+
+  function playMusic (file) {
+    switch (file) {
+      case 1:
+        file = 'test.mp3';
+        break;
+      case 2:
+        file = 'test2.mp3';
+        break;
+    }
+    $rootScope.audio = new Audio('main/assets/audio/' + file);
+    $rootScope.audio.play();
+  }
+
+  function stopMusic () {
+    $rootScope.audio.pause();
   }
 
   function gameReset () {
@@ -489,4 +509,24 @@ angular.module('main')
       'E6': false
     };
   }
-});
+}).directive('compile', ['$compile', function ($compile) {
+  return function (scope, element, attrs) {
+    scope.$watch(
+      function (scope) {
+        // watch the 'compile' expression for changes
+        return scope.$eval(attrs.compile);
+      },
+      function (value) {
+        // when the 'compile' expression changes
+        // assign it into the current DOM
+        element.html(value);
+
+        // compile the new DOM and link it to the current
+        // scope.
+        // NOTE: we only compile .childNodes so that
+        // we don't get into infinite loop compiling ourselves
+        $compile(element.contents())(scope);
+      }
+    );
+  };
+}]);

@@ -1,4 +1,4 @@
-<ion-modal-view view-title="Question">
+<ion-modal-view view-title="Question" style="height: 90%; top: 5%;">
     <ion-header-bar class="bar bar-header bar-dark" align-title="center">
         <ion-title>{{ thisQuestionColumn | uppercase }} - ¥{{ pointValue | number }}</ion-title>
         <div class="buttons" side="right">
@@ -6,7 +6,7 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <div class="centered mega-text heavy-text twenty-pad fancy-font" ng-bind-html="thisQuestionText">
+        <div class="centered mega-text heavy-text twenty-pad fancy-font" compile="thisQuestionText">
             {{ thisQuestionText }}
         </div>
     </ion-content>
